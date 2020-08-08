@@ -15,7 +15,7 @@ import {FiGithub} from 'react-icons/fi'
 export default function Index() {
   return (
     <Flex flexDirection="column" height="100vh">
-      <Flex width="100vw" justifyContent="right">
+      <Flex width="100vw" flexDirection="row-reverse">
         <Icon margin="4" size="8" as={FiGithub} />
       </Flex>
       <Flex flexGrow={1} alignItems="center" justifyContent="center">
