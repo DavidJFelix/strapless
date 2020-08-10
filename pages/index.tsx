@@ -8,6 +8,7 @@ import {
   List,
   ListItem,
   Icon,
+  Link,
 } from '@chakra-ui/core'
 
 import {FiGithub} from 'react-icons/fi'
@@ -16,7 +17,14 @@ export default function Index() {
   return (
     <Flex flexDirection="column" height="100vh">
       <Flex width="100vw" flexDirection="row-reverse">
-        <Icon margin="4" size="8" as={FiGithub} />
+        <Link
+          href="https://github.com/DavidJFelix/strapless"
+          isExternal
+          aria-label="GitHub Repository"
+          _hover={{color: 'blue.500'}}
+        >
+          <Icon margin="4" size="8" as={FiGithub} />
+        </Link>
       </Flex>
       <Flex flexGrow={1} alignItems="center" justifyContent="center">
         <Head>
@@ -32,7 +40,7 @@ export default function Index() {
             key="description"
           />
         </Head>
-        <Stack maxW="4xl">
+        <Stack width={{sm: '100vw', lg: '4xl'}} paddingX="8">
           <Heading
             textAlign="center"
             as="h1"
@@ -96,7 +104,11 @@ export default function Index() {
             </ListItem>
           </List>
           <Flex marginTop={8} justifyContent="center">
-            <Button minWidth="sm" variantColor="blue">
+            <Button
+              width={{md: 'sm'}}
+              variantColor="blue"
+              fontWeight="extrabold"
+            >
               Download for macOS
             </Button>
           </Flex>
