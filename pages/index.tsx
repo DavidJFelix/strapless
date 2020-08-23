@@ -16,6 +16,19 @@ import {FiGithub} from 'react-icons/fi'
 export default function Index() {
   return (
     <Flex flexDirection="column" height="100vh">
+      <Head>
+        <title>Strapless - bootstrap your development system</title>
+        <meta
+          property="og:title"
+          content="Strapless - bootstrap your development system"
+          key="title"
+        />
+        <meta
+          name="description"
+          content="Strapless is a script to bootstrap your development system."
+          key="description"
+        />
+      </Head>
       <Flex width="100vw" flexDirection="row-reverse">
         <Link
           href="https://github.com/DavidJFelix/strapless"
@@ -27,19 +40,6 @@ export default function Index() {
         </Link>
       </Flex>
       <Flex flexGrow={1} alignItems="center" justifyContent="center">
-        <Head>
-          <title>Strapless - bootstrap your development system</title>
-          <meta
-            property="og:title"
-            content="Strapless - bootstrap your development system"
-            key="title"
-          />
-          <meta
-            name="description"
-            content="Strapless is a script to bootstrap your development system."
-            key="description"
-          />
-        </Head>
         <Stack width={{sm: '100vw', lg: '4xl'}} paddingX="8">
           <Heading
             textAlign="center"

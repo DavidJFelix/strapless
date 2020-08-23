@@ -8,10 +8,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "-": "^0.0.1",
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@octokit/oauth-app": "^1.1.2",
+    "@types/jsonwebtoken": "^8.5.0",
+    "D": "^1.0.0",
+    "axios": "^0.19.2",
     "emotion-theming": "^10.0.27",
+    "jsonwebtoken": "^8.5.1",
     "next": "9.5.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
