@@ -1,0 +1,16 @@
+import {getAuthorizationUrl} from '@octokit/oauth-app'
+import {NextApiRequest, NextApiResponse} from 'next'
+
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  const url = await getAuthorizationUrl({
+    clientId: process.env.CLIENT_ID!,
+    state: req.query.state as string,
+    scopes:
+      typeof req.query.scopes === 'string' ? req.query.scopes.split(',') : [],
+    allowSignup: req.query.allowSignup === 'true' ? true : false,
+    redirectUrl: req.query.redirectUrl as string,
+  })
+
+  res.writeHead(302, {location: url})
+  return res.end()
+}
