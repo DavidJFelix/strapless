@@ -1,4 +1,8 @@
-# Strap
+# Strapless
+
+This is a hard fork of [MikeMcQuaid/Strap](https://github.com/mikemcquaid/strap).
+Strap is a stable, reliable project that is maintained by a good maintainer.
+This project is a spiritual successor to Strap, aiming to leverage serverless technology and provide a bootstrap script for a greater diversity of development machines.
 
 A script to bootstrap a minimal macOS development system. This does not assume you're doing Ruby/Rails/web development but installs the minimal set of software every macOS developer will want.
 
