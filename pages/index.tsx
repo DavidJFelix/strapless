@@ -104,13 +104,15 @@ export default function Index() {
             </ListItem>
           </List>
           <Flex marginTop={8} justifyContent="center">
-            <Button
-              width={{md: 'sm'}}
-              variantColor="blue"
-              fontWeight="extrabold"
-            >
-              Download for macOS
-            </Button>
+            <Link href="/api/strapless.sh">
+              <Button
+                width={{md: 'sm'}}
+                variantColor="blue"
+                fontWeight="extrabold"
+              >
+                Download for macOS
+              </Button>
+            </Link>
           </Flex>
         </Stack>
       </Flex>

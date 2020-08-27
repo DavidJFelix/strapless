@@ -1,4 +1,12 @@
-#!/bin/bash
+import {NextApiRequest, NextApiResponse} from 'next'
+
+export const strapHandler = (_req: NextApiRequest, res: NextApiResponse) => {
+  res.statusCode = 200
+  res.setHeader('content-type', 'application/octet-stream')
+  res.send(template)
+}
+
+const template = `#!/bin/bash
 #/ Usage: bin/strap.sh [--debug]
 #/ Install development dependencies on macOS.
 set -e
@@ -121,8 +129,9 @@ log()   { STRAP_STEP="$*"; sudo_refresh; echo "--> $*"; }
 logn()  { STRAP_STEP="$*"; sudo_refresh; printf -- "--> %s " "$*"; }
 logk()  { STRAP_STEP="";   echo "OK"; }
 escape() {
-  printf '%s' "${1//\'/\'}"
-}
+  printf '%s' "${
+    1 //\'/\'}"
+  }
 
 # Given a list of scripts in the dotfiles repo, run the first one that exists
 run_dotfile_scripts() {
@@ -387,12 +396,12 @@ fi
 # Tap a custom Homebrew tap
 if [ -n "$CUSTOM_HOMEBREW_TAP" ]; then
   read -ra CUSTOM_HOMEBREW_TAP <<< "$CUSTOM_HOMEBREW_TAP"
-  log "Running 'brew tap ${CUSTOM_HOMEBREW_TAP[*]}':"
-  brew tap "${CUSTOM_HOMEBREW_TAP[@]}"
+  log "Running 'brew tap \${CUSTOM_HOMEBREW_TAP[*]}':"
+  brew tap "\${CUSTOM_HOMEBREW_TAP[@]}"
   logk
 fi
 
-# Run a custom `brew` command
+# Run a custom \`brew\` command
 if [ -n "$CUSTOM_BREW_COMMAND" ]; then
   log "Executing 'brew $CUSTOM_BREW_COMMAND':"
   # shellcheck disable=SC2086
@@ -405,3 +414,6 @@ run_dotfile_scripts script/strap-after-setup
 
 STRAP_SUCCESS="1"
 log "Your system is now Strap'd!"
+`
+
+export default strapHandler
