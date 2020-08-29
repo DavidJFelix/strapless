@@ -1,4 +1,23 @@
-import {NextApiRequest, NextApiResponse} from 'next'
+import {NextApiRequest, NextApiResponse, NextApiHandler} from 'next'
+import * as jwt from 'jsonwebtoken'
+
+function AuthRedirectMiddleware(next: NextApiHandler): NextApiHandler {
+  return async (req: NextApiRequest, res: NextApiResponse) => {
+    if (
+      req.cookies.auth &&
+      jwt.verify(req.cookies.auth, process.env.AUTH_SECRET!)
+    ) {
+      return next(req, res)
+    } else {
+      res.statusCode = 307
+      res.setHeader(
+        'Set-Cookie',
+        `authCallbackReturnUrl=${req.url}; HttpOnly; Secure; SameSite=Strict`,
+      )
+      res.setHeader('Location', '/auth/github/login')
+    }
+  }
+}
 
 export const strapHandler = (_req: NextApiRequest, res: NextApiResponse) => {
   res.statusCode = 200
