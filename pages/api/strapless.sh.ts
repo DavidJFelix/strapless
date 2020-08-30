@@ -15,6 +15,7 @@ function AuthRedirectMiddleware(next: NextApiHandler): NextApiHandler {
         `authCallbackReturnUrl=${req.url}; HttpOnly; Secure; SameSite=Strict`,
       )
       res.setHeader('Location', '/auth/github/login')
+      res.end()
     }
   }
 }
@@ -435,4 +436,4 @@ STRAP_SUCCESS="1"
 log "Your system is now Strap'd!"
 `
 
-export default strapHandler
+export default AuthRedirectMiddleware(strapHandler)
