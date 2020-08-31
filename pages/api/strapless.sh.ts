@@ -14,7 +14,7 @@ function AuthRedirectMiddleware(next: NextApiHandler): NextApiHandler {
         'Set-Cookie',
         `authCallbackReturnUrl=${req.url}; HttpOnly; Secure; SameSite=Strict`,
       )
-      res.setHeader('Location', '/oauth/github/login')
+      res.setHeader('Location', '/api/oauth/github/login')
       res.end()
     }
   }
