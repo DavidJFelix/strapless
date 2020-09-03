@@ -1,5 +1,6 @@
 import {deleteAuthorization} from '@octokit/oauth-app'
 import {NextApiRequest, NextApiResponse} from 'next'
+import {config} from '../../config'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'DELETE') {
@@ -10,8 +11,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const credentials = {
-    clientId: process.env.CLIENT_ID!,
-    clientSecret: process.env.CLIENT_SECRET!,
+    clientId: config.github.clientId,
+    clientSecret: config.github.clientSecret,
   }
 
   const token = (req.headers.authorization || '').substr('token '.length)

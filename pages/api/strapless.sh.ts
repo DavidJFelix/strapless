@@ -1,12 +1,10 @@
 import {NextApiRequest, NextApiResponse, NextApiHandler} from 'next'
 import * as jwt from 'jsonwebtoken'
+import {config} from './config'
 
 function AuthRedirectMiddleware(next: NextApiHandler): NextApiHandler {
   return async (req: NextApiRequest, res: NextApiResponse) => {
-    if (
-      req.cookies.auth &&
-      jwt.verify(req.cookies.auth, process.env.AUTH_SECRET!)
-    ) {
+    if (req.cookies.auth && jwt.verify(req.cookies.auth, config.auth.secret)) {
       return next(req, res)
     } else {
       res.statusCode = 307

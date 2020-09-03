@@ -5,11 +5,12 @@ import {
   deleteToken,
 } from '@octokit/oauth-app'
 import {NextApiResponse, NextApiRequest} from 'next'
+import {config} from '../../config'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const credentials = {
-    clientId: process.env.CLIENT_ID!,
-    clientSecret: process.env.CLIENT_SECRET!,
+    clientId: config.github.clientId,
+    clientSecret: config.github.clientSecret,
   }
 
   if (req.method === 'POST') {

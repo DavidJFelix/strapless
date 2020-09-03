@@ -2,14 +2,15 @@ import {NextApiRequest, NextApiResponse} from 'next'
 import {createToken} from '@octokit/oauth-app'
 import axios from 'axios'
 import jwt from 'jsonwebtoken'
+import {config} from '../../config'
 
 export default async function CallbackHandler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
   const {token} = await createToken({
-    clientId: process.env.CLIENT_ID!,
-    clientSecret: process.env.CLIENT_SECRET!,
+    clientId: config.github.clientId,
+    clientSecret: config.github.clientSecret!,
     state: req.query.state as string,
     code: req.query.code as string,
   })

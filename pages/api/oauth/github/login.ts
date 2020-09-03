@@ -1,9 +1,10 @@
 import {getAuthorizationUrl} from '@octokit/oauth-app'
 import {NextApiRequest, NextApiResponse} from 'next'
+import {config} from '../../config'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const url = await getAuthorizationUrl({
-    clientId: process.env.CLIENT_ID!,
+    clientId: config.github.clientId,
     state: req.query.state as string,
     scopes:
       typeof req.query.scopes === 'string' ? req.query.scopes.split(',') : [],
