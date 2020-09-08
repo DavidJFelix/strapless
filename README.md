@@ -1,3 +1,5 @@
+[![Deploy with Vercel](https://img.shields.io/badge/Deploy-with%20Vercel-blue?style=for-the-badge&logo=vercel)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fdavidjfelix%2Fstrapless)
+
 # Strapless
 
 This is a hard fork of [MikeMcQuaid/Strap](https://github.com/mikemcquaid/strap).
@@ -39,27 +41,23 @@ Replacing [Boxen](https://github.com/boxen/boxen/) in [GitHub](https://github.co
 
 ## Usage
 
-Open <https://macos-strap.herokuapp.com/> in your web browser.
+If you trust me and have no problem with the defaults, use https://strapless.dev
 
-Instead, to run Strap locally run:
+If you'd rather host your own:
 
-```bash
-git clone https://github.com/MikeMcQuaid/strap
-cd strap
-bash bin/strap.sh # or bash bin/strap.sh --debug for more debugging output
-```
+### Vercel
 
-Instead, to run the web application locally run:
+https://strapless.dev is hosted on Vercel. You can deploy this exact repository using the button below:
 
-```bash
-git clone https://github.com/MikeMcQuaid/strap
-cd strap
-GITHUB_KEY="..." GITHUB_SECRET="..." ./script/server
-```
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fdavidjfelix%2Fstrapless)
 
-Instead, to deploy to [Heroku](https://www.heroku.com) click:
+After you deploy the code, be sure to set the following environment variables in Vercel:
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+- `AUTH_SECRET`
+- `GITHUB_CLIENT_ID`
+- `GITHUB_CLIENT_SECRET`
+
+
 
 ## Web Application Configuration Environment Variables
 
