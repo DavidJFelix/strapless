@@ -4,9 +4,11 @@
 
 This is a hard fork of [MikeMcQuaid/Strap](https://github.com/mikemcquaid/strap).
 Strap is a stable, reliable project that is maintained by a good maintainer.
+It is highly recommended by the authors of this repository.
 This project is a spiritual successor to Strap, aiming to leverage serverless technology and provide a bootstrap script for a greater diversity of development machines.
 
-A script to bootstrap a minimal macOS development system. This does not assume you're doing Ruby/Rails/web development but installs the minimal set of software every macOS developer will want.
+Strapless is a script and interface for bootstraping a minimal development system.
+It does not assume you're any specific type of development but installs the minimal set of software developer will want while setting sane defaults and triggering additional provisioning.
 
 ## Motivation
 
@@ -57,18 +59,6 @@ After you deploy the code, be sure to set the following environment variables in
 - `GITHUB_CLIENT_ID`
 - `GITHUB_CLIENT_SECRET`
 
-
-
-## Web Application Configuration Environment Variables
-
-- `GITHUB_KEY`: the GitHub.com Application Client ID.
-- `GITHUB_SECRET`: the GitHub.com Application Client Secret.
-- `SESSION_SECRET`: the secret used for cookie session storage.
-- `WEB_CONCURRENCY`: the number of Unicorn (web server) processes to run (defaults to 3).
-- `STRAP_ISSUES_URL`: the URL where users should file issues (defaults to no URL).
-- `STRAP_BEFORE_INSTALL`: instructions displayed in the web application for users to follow before installing Strap (wrapped in `<li>` tags).
-- `CUSTOM_HOMEBREW_TAP`: an optional Homebrew tap to install with `brew tap`. Specify multiple arguments to brew tap by separating values with spaces.
-- `CUSTOM_BREW_COMMAND`: a single `brew` command that is run after all other stages have completed.
 
 ## Status
 
