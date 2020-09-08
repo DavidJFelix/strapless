@@ -8,7 +8,8 @@ It is highly recommended by the authors of this repository.
 This project is a spiritual successor to Strap, aiming to leverage serverless technology and provide a bootstrap script for a greater diversity of development machines.
 
 Strapless is a script and interface for bootstraping a minimal development system.
-It does not assume you're any specific type of development but installs the minimal set of software developer will want while setting sane defaults and triggering additional provisioning.
+It does not assume you're any specific type of development but installs a minimal set of software which a developer will want.
+It also sets sane defaults and triggers additional, customized, provisioning.
 
 ## Motivation
 
