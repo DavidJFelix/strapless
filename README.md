@@ -1,4 +1,4 @@
-[![Deploy with Vercel](https://img.shields.io/badge/Deploy-with%20Vercel-blue?style=for-the-badge&logo=vercel)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fdavidjfelix%2Fstrapless)
+[![Deploy with Vercel](https://img.shields.io/badge/Deploy-with%20Vercel-blue?style=flat-square&logo=vercel)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fdavidjfelix%2Fstrapless)
 
 # Strapless
 
