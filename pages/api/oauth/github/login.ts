@@ -7,7 +7,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     clientId: config.github.clientId,
     state: req.query.state as string,
     scopes:
-      typeof req.query.scopes === 'string' ? req.query.scopes.split(',') : [],
+      typeof req.query.scopes === 'string'
+        ? req.query.scopes.split(',')
+        : [
+            'user:email',
+            'repo',
+            'workflow',
+            'write:packages',
+            'read:packages',
+            'read:org',
+            'read:discussions',
+          ],
     allowSignup: req.query.allowSignup === 'true' ? true : false,
     redirectUrl: req.query.redirectUrl as string,
   })
