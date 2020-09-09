@@ -43,4 +43,5 @@ export default async function CallbackHandler(
     }Path="/"; Secure; Http-Only; Same-Site=Strict`,
   )
   res.redirect('/')
+  return res.end()
 }
