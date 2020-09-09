@@ -13,7 +13,7 @@ function AuthRedirectMiddleware(next: NextApiHandler): NextApiHandler {
         `authCallbackReturnUrl=${req.url}; HttpOnly; Secure; SameSite=Strict`,
       )
       res.setHeader('Location', '/api/oauth/github/login')
-      res.end()
+      return res.end()
     }
   }
 }
@@ -21,7 +21,7 @@ function AuthRedirectMiddleware(next: NextApiHandler): NextApiHandler {
 export const strapHandler = (_req: NextApiRequest, res: NextApiResponse) => {
   res.statusCode = 200
   res.setHeader('content-type', 'application/octet-stream')
-  res.send(template)
+  return res.send(template)
 }
 
 const template = `#!/bin/bash
