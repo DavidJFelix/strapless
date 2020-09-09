@@ -15,7 +15,7 @@ export default async function CallbackHandler(
     state: req.query.state as string,
     code: req.query.code as string,
   })
-  const userPromise = axios.get('https://api.github.com/user/', {
+  const userPromise = axios.get('https://api.github.com/user', {
     headers: {
       Accept: 'application/vnd.github.v3+json',
       Authorization: `token ${token}`,
