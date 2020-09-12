@@ -44,17 +44,12 @@ export default async function CallbackHandler(
       ? req.cookies['strapless.auth.callbackRedirectUrl']
       : '/'
 
-  res.setHeader(
-    'Set-Cookie',
+  res.setHeader('Set-Cookie', [
     `strapless.auth.session=${Buffer.from(cookie, 'utf-8').toString(
       'base64',
-    )}; Path="/"; Secure; Http-Only; Same-Site=Strict`,
-  )
-
-  res.setHeader(
-    'Set-Cookie',
+    )}; Path="/"; Secure; Http-Only; Same-Site=Strict;`,
     `strapless.auth.callbackRedirectUrl="/"; Path="/"; Secure; Http-Only; Same-Site=Strict; Expires=${new Date().toUTCString()}`,
-  )
+  ])
   res.redirect(redirectUrl)
   return res.end()
 }
