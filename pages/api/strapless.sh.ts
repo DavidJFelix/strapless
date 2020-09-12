@@ -4,14 +4,17 @@ import {config} from './config'
 
 function AuthRedirectMiddleware(next: NextApiHandler): NextApiHandler {
   return async (req: NextApiRequest, res: NextApiResponse) => {
-    if (req.cookies.auth && jwt.verify(req.cookies.auth, config.auth.secret)) {
+    if (
+      req.cookies['strapless.auth.session'] &&
+      jwt.verify(req.cookies['strapless.auth.session'], config.auth.secret)
+    ) {
       return next(req, res)
     } else {
       res.setHeader(
         'Set-Cookie',
         `strapless.auth.callbackRedirectUrl=${req.url}; ${
           req.headers.host ? `Domain=${req.headers.host};` : ''
-        }Path="/"; Secure; Http-Only; Same-Site=Strict;`,
+        }Path=/; Secure; Http-Only; Same-Site=Strict;`,
       )
       res.redirect('/api/oauth/github/login')
       return res.end()
