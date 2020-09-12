@@ -7,12 +7,13 @@ function AuthRedirectMiddleware(next: NextApiHandler): NextApiHandler {
     if (req.cookies.auth && jwt.verify(req.cookies.auth, config.auth.secret)) {
       return next(req, res)
     } else {
-      res.statusCode = 307
       res.setHeader(
         'Set-Cookie',
-        `authCallbackReturnUrl=${req.url}; HttpOnly; Secure; SameSite=Strict`,
+        `strapless.auth.callbackRedirectUrl=${req.url}; ${
+          req.headers.host ? `Domain=${req.headers.host};` : ''
+        }Path="/"; Secure; Http-Only; Same-Site=Strict;`,
       )
-      res.setHeader('Location', '/api/oauth/github/login')
+      res.redirect('/api/oauth/github/login')
       return res.end()
     }
   }
