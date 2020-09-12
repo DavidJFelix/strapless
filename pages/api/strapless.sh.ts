@@ -6,7 +6,12 @@ function AuthRedirectMiddleware(next: NextApiHandler): NextApiHandler {
   return async (req: NextApiRequest, res: NextApiResponse) => {
     if (
       req.cookies['strapless.auth.session'] &&
-      jwt.verify(req.cookies['strapless.auth.session'], config.auth.secret)
+      jwt.verify(
+        Buffer.from(req.cookies['strapless.auth.session'], 'base64').toString(
+          'utf-8',
+        ),
+        config.auth.secret,
+      )
     ) {
       return next(req, res)
     } else {
