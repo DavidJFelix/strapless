@@ -1,7 +1,7 @@
 import type {AppProps} from 'next/app'
-import {ThemeProvider, theme, ITheme, CSSReset} from '@chakra-ui/core'
+import {ThemeProvider, theme, CSSReset} from '@chakra-ui/react'
 
-const appTheme: ITheme = {
+const appTheme = {
   ...theme,
   fonts: {
     ...theme.fonts,

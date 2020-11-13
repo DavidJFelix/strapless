@@ -9,7 +9,7 @@ import {
   ListItem,
   Icon,
   Link,
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 
 import {FiGithub} from 'react-icons/fi'
 
@@ -36,7 +36,7 @@ export default function Index() {
           aria-label="GitHub Repository"
           _hover={{color: 'blue.500'}}
         >
-          <Icon margin="4" size="8" as={FiGithub} />
+          <Icon margin="4" height="8" width="8" as={FiGithub} />
         </Link>
       </Flex>
       <Flex flexGrow={1} alignItems="center" justifyContent="center">
@@ -107,7 +107,7 @@ export default function Index() {
             <Link href="/api/strapless.sh">
               <Button
                 width={{md: 'sm'}}
-                variantColor="blue"
+                colorScheme="blue"
                 fontWeight="extrabold"
               >
                 Download for macOS

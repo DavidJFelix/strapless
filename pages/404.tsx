@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import {Flex, Heading, Stack, Text, Button} from '@chakra-ui/core'
+import {Flex, Heading, Stack, Text, Button} from '@chakra-ui/react'
 
 export default function ErrorPage404() {
   return (
