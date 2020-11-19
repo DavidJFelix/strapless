@@ -3,7 +3,7 @@ import {ChakraProvider, extendTheme} from '@chakra-ui/react'
 
 const appTheme = extendTheme({
   fonts: {
-    body: `-apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue' Ubuntu, Arial, sans-serif`,
+    body: `-apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif`,
   },
 })
 

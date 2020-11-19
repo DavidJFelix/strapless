@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import {Flex, Heading, Stack, Text, Button} from '@chakra-ui/react'
+import {Flex, Heading, Text, Button} from '@chakra-ui/react'
 
 export default function ErrorPage404() {
   return (
@@ -19,7 +19,7 @@ export default function ErrorPage404() {
         />
       </Head>
       <Flex flexGrow={1} alignItems="center" justifyContent="center">
-        <Stack width={{sm: '100vw', lg: '4xl'}} paddingX="8">
+        <Flex direction="column" width={{sm: '100vw', lg: '4xl'}} paddingX="8">
           <Heading
             textAlign="center"
             as="h1"
@@ -46,14 +46,14 @@ export default function ErrorPage404() {
             <Link href="/">
               <Button
                 width={{md: 'sm'}}
-                variantColor="blue"
+                colorScheme="blue"
                 fontWeight="extrabold"
               >
                 Back to homepage
               </Button>
             </Link>
           </Flex>
-        </Stack>
+        </Flex>
       </Flex>
     </Flex>
   )
