@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import {
-  Stack,
   Heading,
   Flex,
   Text,
@@ -40,7 +39,7 @@ export default function Index() {
         </Link>
       </Flex>
       <Flex flexGrow={1} alignItems="center" justifyContent="center">
-        <Stack width={{sm: '100vw', lg: '4xl'}} paddingX="8">
+        <Flex direction="column" width={{sm: '100vw', lg: '4xl'}} paddingX="8">
           <Heading
             textAlign="center"
             as="h1"
@@ -103,7 +102,7 @@ export default function Index() {
               it).
             </ListItem>
           </List>
-          <Flex marginTop={8} justifyContent="center">
+          <Flex marginTop="8" justifyContent="center">
             <Link href="/api/strapless.sh">
               <Button
                 width={{md: 'sm'}}
@@ -114,7 +113,7 @@ export default function Index() {
               </Button>
             </Link>
           </Flex>
-        </Stack>
+        </Flex>
       </Flex>
     </Flex>
   )
