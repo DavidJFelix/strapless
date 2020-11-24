@@ -1,8 +1,9 @@
-import fs from 'fs'
-import path from 'path'
+import * as fs from 'fs'
+import * as path from 'path'
 
 import {NextApiRequest, NextApiResponse, NextApiHandler} from 'next'
 import * as jwt from 'jsonwebtoken'
+import * as handlebars from 'handlebars'
 import {config} from './config'
 
 function AuthRedirectMiddleware(next: NextApiHandler): NextApiHandler {
@@ -30,12 +31,25 @@ function AuthRedirectMiddleware(next: NextApiHandler): NextApiHandler {
   }
 }
 
+interface TemplateParams {
+  githubName: string
+  githubEmail: string
+  githubUsername: string
+  githubToken: string
+}
+
 export const strapHandler = (_req: NextApiRequest, res: NextApiResponse) => {
   res.statusCode = 200
   res.setHeader('content-type', 'application/octet-stream')
   const templatePath = path.resolve('./templates/strapless.sh.hbs')
-  const template = fs.readFileSync(templatePath)
-  return res.send(template)
+  const template = handlebars.compile<TemplateParams>(fs.readFileSync(templatePath), {strict: true})
+
+  return res.send(template({
+    githubName: 'tester',
+    githubEmail: 'test@test.com',
+    githubUsername: 'davidjfelix',
+    githubToken: '123f'
+  }))
 }
 
 export default AuthRedirectMiddleware(strapHandler)
