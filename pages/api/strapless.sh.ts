@@ -44,12 +44,14 @@ export const strapHandler = (_req: NextApiRequest, res: NextApiResponse) => {
   const templatePath = path.resolve('./templates/strapless.sh.hbs')
   const template = handlebars.compile<TemplateParams>(fs.readFileSync(templatePath), {strict: true})
 
-  return res.send(template({
+  const renderedTemplate =  template({
     githubName: 'tester',
     githubEmail: 'test@test.com',
     githubUsername: 'davidjfelix',
-    githubToken: '123f'
-  }))
+    githubToken: '123f',
+  })
+
+  return res.send(renderedTemplate)
 }
 
 export default AuthRedirectMiddleware(strapHandler)
