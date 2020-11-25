@@ -42,9 +42,12 @@ export const strapHandler = (_req: NextApiRequest, res: NextApiResponse) => {
   res.statusCode = 200
   res.setHeader('content-type', 'application/octet-stream')
   const templatePath = path.resolve('./templates/strapless.sh.hbs')
-  const template = handlebars.compile<TemplateParams>(fs.readFileSync(templatePath), {strict: true})
+  const template = handlebars.compile<TemplateParams>(
+    fs.readFileSync(templatePath).toString('utf8'),
+    {strict: true},
+  )
 
-  const renderedTemplate =  template({
+  const renderedTemplate = template({
     githubName: 'tester',
     githubEmail: 'test@test.com',
     githubUsername: 'davidjfelix',
