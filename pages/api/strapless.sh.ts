@@ -45,11 +45,13 @@ interface GithubSession {
 
 function getSession(req: NextApiRequest): GithubSession {
   // FIXME: actually make sure this exists
-  const session: GithubSession = JSON.parse(
+  const session = jwt.verify(
     Buffer.from(req.cookies['strapless.auth.session'], 'base64').toString(
       'utf-8',
     ),
-  )
+    config.auth.secret,
+  ) as GithubSession
+
   return session
 }
 
