@@ -31,6 +31,28 @@ function AuthRedirectMiddleware(next: NextApiHandler): NextApiHandler {
   }
 }
 
+interface GithubSession {
+  user: {
+    login: string
+    name: string
+  }
+  emails: {
+    email: string
+    primary: boolean
+  }[]
+  token: string
+}
+
+function getSession(req: NextApiRequest): GithubSession {
+  // FIXME: actually make sure this exists
+  const session: GithubSession = JSON.parse(
+    Buffer.from(req.cookies['strapless.auth.session'], 'base64').toString(
+      'utf-8',
+    ),
+  )
+  return session
+}
+
 interface TemplateParams {
   githubName: string
   githubEmail: string
@@ -38,7 +60,7 @@ interface TemplateParams {
   githubToken: string
 }
 
-export const strapHandler = (_req: NextApiRequest, res: NextApiResponse) => {
+export const strapHandler = (req: NextApiRequest, res: NextApiResponse) => {
   res.statusCode = 200
   res.setHeader('content-type', 'application/octet-stream')
   const templatePath = path.resolve('./templates/strapless.sh.hbs')
@@ -47,11 +69,15 @@ export const strapHandler = (_req: NextApiRequest, res: NextApiResponse) => {
     {strict: true},
   )
 
+  const session = getSession(req)
+
   const renderedTemplate = template({
-    githubName: 'tester',
-    githubEmail: 'test@test.com',
-    githubUsername: 'davidjfelix',
-    githubToken: '123f',
+    githubName: session.user.name,
+    // FIXME: make this less janky
+    githubEmail: (session.emails.find((email) => email.primary) || {email: ''})
+      .email,
+    githubUsername: session.user.login,
+    githubToken: session.token,
   })
 
   return res.send(renderedTemplate)

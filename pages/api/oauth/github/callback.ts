@@ -37,8 +37,6 @@ export default async function CallbackHandler(
     config.auth.secret,
   )
 
-  console.log(req.cookies)
-
   const redirectUrl =
     req.cookies['strapless.auth.callbackRedirectUrl'] !== undefined
       ? req.cookies['strapless.auth.callbackRedirectUrl']
