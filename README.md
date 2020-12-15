@@ -3,9 +3,8 @@
 # Strapless
 
 This is a hard fork of [MikeMcQuaid/Strap](https://github.com/mikemcquaid/strap).
-Strap is a stable, reliable project that is maintained by a good maintainer.
-It is highly recommended by the authors of this repository.
-This project is a spiritual successor to Strap, aiming to leverage serverless technology and provide a bootstrap script for a greater diversity of development machines.
+Strap is a stable and reliable project which is well maintained.
+This project is inpired by Strap and the initial codebase is exactly the same as strap. Strapless aims to leverage serverless technology and provide a bootstrap script for a greater diversity of development machines.
 
 Strapless is a script and interface for bootstraping a minimal development system.
 It does not assume you're any specific type of development but installs a minimal set of software which a developer will want.
@@ -13,7 +12,7 @@ It also sets sane defaults and triggers additional, customized, provisioning.
 
 ## Motivation
 
-Replacing [Boxen](https://github.com/boxen/boxen/) in [GitHub](https://github.com/) with a better tool. This post outlines the problems with Boxen and requirements for Strap and other tools used by GitHub: <https://mikemcquaid.com/2016/06/15/replacing-boxen/>
+Replacing [Strap](https://github.com/mikemcquaid/strap) with a serverless, cros-platform tool.
 
 ## Features
 
