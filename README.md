@@ -65,9 +65,6 @@ After you deploy the code, be sure to set the following environment variables in
 
 Stable and in active development.
 
-## Contact
-
-[Mike McQuaid](mailto:mike@mikemcquaid.com)
 
 ## License
 
