@@ -12,7 +12,7 @@ It also sets sane defaults and triggers additional, customized, provisioning.
 
 ## Motivation
 
-Replacing [Strap](https://github.com/mikemcquaid/strap) with a serverless, cros-platform tool.
+Replacing [Strap](https://github.com/mikemcquaid/strap) with a serverless, cross-platform tool.
 
 ## Features
 
