@@ -120,9 +120,8 @@ log()   { STRAPLESS_STEP="$*"; sudo_refresh; echo "--> $*"; }
 logn()  { STRAPLESS_STEP="$*"; sudo_refresh; printf -- "--> %s " "$*"; }
 logk()  { STRAPLESS_STEP="";   echo "OK"; }
 escape() {
-  printf '%s' "${
-    1 //\'/\'}"
-  }
+  printf '%s' "${1//\'/\'}"
+}
 
 # Given a list of scripts in the dotfiles repo, run the first one that exists
 run_dotfile_scripts() {
